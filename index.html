@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Гурман-Інфо — каталог крафтових сирів і вин та інтерактивний підбір гастрономічних поєднань.">
+  <meta name="keywords" content="крафтовий сир, українське вино, поєднання сиру і вина, гастрономічний каталог">
+  <meta name="theme-color" content="#5b1835">
+  <title>Гурман-Інфо — крафтові сири та вина</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">До основного вмісту</a>
+  <header class="site-header" id="top">
+    <div class="container nav-wrap">
+      <a class="brand" href="#top" aria-label="Гурман-Інфо — на головну">
+        <img src="assets/logo.svg" alt="" width="44" height="44">
+        <span>Гурман-Інфо</span>
+      </a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Відкрити меню">
+        <span></span><span></span><span></span>
+      </button>
+      <nav id="site-nav" aria-label="Головна навігація">
+        <a href="#catalog">Каталог</a>
+        <a href="#pairing">Підбір пари</a>
+        <a href="#gallery">Галерея</a>
+        <a href="#about">Про проєкт</a>
+        <a class="nav-cta" href="#contact">Написати нам</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-overlay"></div>
+      <div class="container hero-content">
+        <p class="eyebrow">Смак, що має історію</p>
+        <h1 id="hero-title">Знайдіть ідеальну пару сиру та вина</h1>
+        <p>Авторський каталог локальних виробників і зрозумілий підбір поєднань — без складних термінів.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#pairing">Підібрати пару</a>
+          <a class="btn btn-ghost" href="#catalog">Переглянути каталог</a>
+        </div>
+        <ul class="hero-facts" aria-label="Переваги сервісу">
+          <li><strong>24</strong><span>добірні позиції</span></li>
+          <li><strong>8</strong><span>локальних виробників</span></li>
+          <li><strong>1 хв</strong><span>на підбір пари</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section benefits" aria-labelledby="benefits-title">
+      <div class="container">
+        <p class="eyebrow">Чому це зручно</p>
+        <h2 id="benefits-title">Від вибору до дегустації</h2>
+        <div class="cards three">
+          <article class="feature-card"><img src="assets/icons.svg#search" alt="" width="42" height="42"><h3>Зрозумілий каталог</h3><p>Фільтруйте за смаком, витримкою та походженням продукту.</p></article>
+          <article class="feature-card"><img src="assets/icons.svg#spark" alt="" width="42" height="42"><h3>Розумний підбір</h3><p>Отримуйте доречну пару та коротке пояснення вибору.</p></article>
+          <article class="feature-card"><img src="assets/icons.svg#heart" alt="" width="42" height="42"><h3>Локальні історії</h3><p>Дізнавайтеся більше про українські сироварні й виноробні.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section catalog" id="catalog" aria-labelledby="catalog-title">
+      <div class="container">
+        <div class="section-heading">
+          <div><p class="eyebrow">Обрані смаки</p><h2 id="catalog-title">Популярні поєднання</h2></div>
+          <div class="filters" role="group" aria-label="Фільтр каталогу">
+            <button class="chip active" data-filter="all" type="button">Усі</button>
+            <button class="chip" data-filter="soft" type="button">М'які</button>
+            <button class="chip" data-filter="hard" type="button">Тверді</button>
+            <button class="chip" data-filter="blue" type="button">Блакитні</button>
+          </div>
+        </div>
+        <div class="cards catalog-grid" id="catalog-grid">
+          <article class="product-card" data-kind="soft"><div class="product-art brie" role="img" aria-label="Брі з білою пліснявою">Брі</div><div class="product-body"><span class="tag">М'який</span><h3>Карпатський брі</h3><p>Вершковий, грибний, делікатний.</p><div class="pair"><span>Пара:</span> ігристе брют</div></div></article>
+          <article class="product-card" data-kind="hard"><div class="product-art cheddar" role="img" aria-label="Витриманий твердий сир">18 міс.</div><div class="product-body"><span class="tag">Твердий</span><h3>Витриманий ґауда</h3><p>Горіховий, карамельний, насичений.</p><div class="pair"><span>Пара:</span> сухе червоне</div></div></article>
+          <article class="product-card" data-kind="blue"><div class="product-art blue" role="img" aria-label="Сир з блакитною пліснявою">Blue</div><div class="product-body"><span class="tag">Блакитний</span><h3>Галицький блю</h3><p>Пікантний, солонуватий, виразний.</p><div class="pair"><span>Пара:</span> солодке біле</div></div></article>
+          <article class="product-card" data-kind="soft"><div class="product-art goat" role="img" aria-label="М'який козячий сир">Chèvre</div><div class="product-body"><span class="tag">М'який</span><h3>Козячий шевр</h3><p>Свіжий, трав'яний, з легкою кислинкою.</p><div class="pair"><span>Пара:</span> совіньйон блан</div></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section pairing" id="pairing" aria-labelledby="pairing-title">
+      <div class="container pairing-layout">
+        <div class="pairing-copy"><p class="eyebrow">Інтерактивний помічник</p><h2 id="pairing-title">Ваше поєднання за хвилину</h2><p>Оберіть характеристики сиру та нагоду. Алгоритм запропонує стиль вина, температуру подачі й смаковий акцент.</p><ul><li>3 параметри підбору</li><li>перевірка неповних даних</li><li>пояснення кожної рекомендації</li></ul></div>
+        <form class="pairing-form" id="pairing-form" novalidate>
+          <label>Тип сиру<select id="cheese" required><option value="">Оберіть тип</option><option value="soft">М'який</option><option value="hard">Твердий</option><option value="blue">З блакитною пліснявою</option><option value="goat">Козячий</option></select></label>
+          <label>Інтенсивність смаку<input id="intensity" type="range" min="1" max="5" value="3"><span class="range-output">Середня — <output id="intensity-output">3</output>/5</span></label>
+          <label>Нагода<select id="occasion" required><option value="">Оберіть нагоду</option><option value="evening">Тиха вечеря</option><option value="party">Компанія друзів</option><option value="gift">Подарунковий сет</option></select></label>
+          <button class="btn btn-primary" type="submit">Отримати рекомендацію</button>
+          <p class="form-message" id="pairing-message" role="alert"></p>
+          <div class="pairing-result" id="pairing-result" hidden aria-live="polite"></div>
+        </form>
+      </div>
+    </section>
+
+    <section class="section gallery" id="gallery" aria-labelledby="gallery-title">
+      <div class="container"><p class="eyebrow">Натхнення</p><h2 id="gallery-title">Атмосфера дегустації</h2>
+        <div class="swiper gallery-swiper"><div class="swiper-wrapper">
+          <a class="swiper-slide gallery-slide g1" href="assets/hero_bg.png" data-fancybox="gallery" data-caption="Вечір локальних смаків"><span>Вечір локальних смаків</span></a>
+          <a class="swiper-slide gallery-slide g2" href="assets/hero_bg.png" data-fancybox="gallery" data-caption="Сирна дошка"><span>Сирна дошка</span></a>
+          <a class="swiper-slide gallery-slide g3" href="assets/hero_bg.png" data-fancybox="gallery" data-caption="Вино з характером"><span>Вино з характером</span></a>
+        </div><div class="swiper-pagination"></div></div>
+      </div>
+    </section>
+
+    <section class="section about" id="about" aria-labelledby="about-title">
+      <div class="container about-grid"><div><p class="eyebrow">Про проєкт</p><h2 id="about-title">Менше правил — більше вдалих відкриттів</h2><p>«Гурман-Інфо» допомагає початківцям і поціновувачам знаходити локальні продукти, розуміти базові принципи гастрономічних пар і впевнено складати дегустаційні сети.</p><a class="text-link" href="#contact">Запропонувати виробника →</a></div><blockquote>«Добре поєднання не перекриває смак — воно відкриває в ньому нову ноту.»<cite>Редакція «Гурман-Інфо»</cite></blockquote></div>
+    </section>
+
+    <section class="section contact" id="contact" aria-labelledby="contact-title">
+      <div class="container contact-grid"><div><p class="eyebrow">Зворотний зв'язок</p><h2 id="contact-title">Поговорімо про локальні смаки</h2><p>Надішліть запитання або розкажіть про українського виробника, якого варто додати до каталогу.</p><div class="contact-note">Відповідаємо протягом 1–2 робочих днів.</div></div>
+        <form id="contact-form" class="contact-form" novalidate>
+          <div class="field"><label for="name">Ім'я</label><input id="name" name="name" autocomplete="name" minlength="2" required><small></small></div>
+          <div class="field"><label for="email">Email</label><input id="email" name="email" type="email" autocomplete="email" required><small></small></div>
+          <div class="field"><label for="phone">Телефон</label><input id="phone" name="phone" type="tel" inputmode="tel" placeholder="+380 XX XXX XX XX" required><small></small></div>
+          <div class="field"><label for="message">Повідомлення</label><textarea id="message" name="message" rows="4" minlength="10" required></textarea><small></small></div>
+          <label class="consent"><input id="consent" type="checkbox" required> <span>Погоджуюся на обробку даних для відповіді на звернення.</span></label>
+          <button class="btn btn-primary" type="submit">Надіслати</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer><div class="container footer-grid"><a class="brand footer-brand" href="#top"><img src="assets/logo.svg" alt="" width="40" height="40"><span>Гурман-Інфо</span></a><p>Навчальний вебпроєкт Максима Педича, ПП-21.</p><p>© 2026 Усі права захищено.</p></div></footer>
+
+  <dialog id="success-dialog"><button class="dialog-close" type="button" aria-label="Закрити">×</button><div class="success-icon">✓</div><h2>Дякуємо!</h2><p>Повідомлення успішно перевірено. У навчальній версії дані не передаються на сервер.</p><button class="btn btn-primary dialog-ok" type="button">Готово</button></dialog>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
