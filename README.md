@@ -4,6 +4,12 @@
 
 Автор: Максим Педич, група ПП-21. 2026 рік.
 
+## Живі версії
+
+- GitHub Pages: https://lumencompanyua.github.io/gurman-info/
+- Netlify: https://gurman-info-lab7.netlify.app
+- Репозиторій: https://github.com/lumencompanyua/gurman-info
+
 ## Запуск
 
 Запустіть локальний HTTP-сервер у цій папці (`python -m http.server 8776 --bind 127.0.0.1`) і відкрийте http://127.0.0.1:8776. Для шрифтів Google та бібліотек галереї потрібен інтернет; основні блоки мають запасні шрифти й працюють без бібліотек. Сайт не надсилає персональні дані.
