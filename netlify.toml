@@ -1,0 +1,5 @@
+# Netlify автоматично публікує сайт після кожного push у main (репозиторій lumencompanyua/gurman-info).
+# Збирати нічого не треба: це статичний сайт, Tailwind уже зібрано в assets/tailwind.css.
+[build]
+  publish = "."
+  command = ""
