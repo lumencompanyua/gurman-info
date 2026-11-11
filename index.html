@@ -5,18 +5,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Гурман-Інфо — каталог крафтових сирів і вин та інтерактивний підбір гастрономічних поєднань.">
   <meta name="keywords" content="крафтовий сир, українське вино, поєднання сиру і вина, гастрономічний каталог">
-  <meta name="theme-color" content="#5b1835">
+  <meta name="theme-color" content="#180b10">
   <title>Гурман-Інфо — крафтові сири та вина</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css">
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css?v=lab7-1">
+  <link rel="stylesheet" href="assets/tailwind.css?v=lab7-1">
+  <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
 </head>
 <body>
-  <a class="skip-link" href="#main">До основного вмісту</a>
-  <header class="site-header" id="top">
+<a class="skip-link" href="#main">До основного вмісту</a>
+  <header class="site-header">
     <div class="container nav-wrap">
       <a class="brand" href="#top" aria-label="Гурман-Інфо — на головну">
         <img src="assets/logo.svg" alt="" width="44" height="44">
@@ -28,29 +30,29 @@
       <nav id="site-nav" aria-label="Головна навігація">
         <a href="#catalog">Каталог</a>
         <a href="#pairing">Підбір пари</a>
-        <a href="#gallery">Галерея</a>
-        <a href="#about">Про проєкт</a>
+        <a href="#video">Відео</a>
+        <a href="#faq">Питання</a>
         <a class="nav-cta" href="#contact">Написати нам</a>
       </nav>
     </div>
   </header>
 
   <main id="main">
-    <section class="hero" aria-labelledby="hero-title">
+    <section class="hero" id="top" aria-labelledby="hero-title">
+      <div class="hero-media" aria-hidden="true">
+        <img class="hero-still" src="assets/hero_bg.webp" alt="" width="1672" height="941" fetchpriority="high">
+        <video id="hero-video" class="hero-video" muted playsinline preload="auto" poster="assets/hero_start.webp" src="assets/hero_motion.mp4" width="1024" height="592" tabindex="-1"></video>
+      </div>
+      <button class="hero-video-control" type="button" aria-controls="hero-video" hidden>Відтворити відео</button>
       <div class="hero-overlay"></div>
       <div class="container hero-content">
-        <p class="eyebrow">Смак, що має історію</p>
-        <h1 id="hero-title">Знайдіть ідеальну пару сиру та вина</h1>
-        <p>Авторський каталог локальних виробників і зрозумілий підбір поєднань — без складних термінів.</p>
+        <p class="eyebrow">Український крафт · сир + вино</p>
+        <h1 id="hero-title">Відкривайте вдалі поєднання сиру та вина</h1>
+        <p>Досліджуйте крафтові сири й вина. Обирайте смаки та знаходьте свою пару зі зрозумілим поясненням.</p>
         <div class="hero-actions">
-          <a class="btn btn-primary" href="#pairing">Підібрати пару</a>
+          <a class="btn btn-primary font-extrabold shadow-lg shadow-black/40 transition-colors duration-200 hover:bg-gold-light active:bg-gold-dark focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gold" href="#pairing">Підібрати пару</a>
           <a class="btn btn-ghost" href="#catalog">Переглянути каталог</a>
         </div>
-        <ul class="hero-facts" aria-label="Переваги сервісу">
-          <li><strong>24</strong><span>добірні позиції</span></li>
-          <li><strong>8</strong><span>локальних виробників</span></li>
-          <li><strong>1 хв</strong><span>на підбір пари</span></li>
-        </ul>
       </div>
     </section>
 
@@ -59,9 +61,9 @@
         <p class="eyebrow">Чому це зручно</p>
         <h2 id="benefits-title">Від вибору до дегустації</h2>
         <div class="cards three">
-          <article class="feature-card"><img src="assets/icons.svg#search" alt="" width="42" height="42"><h3>Зрозумілий каталог</h3><p>Фільтруйте за смаком, витримкою та походженням продукту.</p></article>
-          <article class="feature-card"><img src="assets/icons.svg#spark" alt="" width="42" height="42"><h3>Розумний підбір</h3><p>Отримуйте доречну пару та коротке пояснення вибору.</p></article>
-          <article class="feature-card"><img src="assets/icons.svg#heart" alt="" width="42" height="42"><h3>Локальні історії</h3><p>Дізнавайтеся більше про українські сироварні й виноробні.</p></article>
+          <article class="feature-card max-sm:flex max-sm:items-start max-sm:gap-4 max-sm:py-5"><svg class="feature-icon shrink-0 max-sm:mb-0 max-sm:h-9 max-sm:w-9" width="42" height="42" aria-hidden="true" focusable="false"><use href="assets/icons.svg#search"></use></svg><div><h3 class="max-sm:mb-1 max-sm:mt-0">Зрозумілий каталог</h3><p>Переглядайте демонстраційні поєднання та фільтруйте їх за типом сиру.</p></div></article>
+          <article class="feature-card max-sm:flex max-sm:items-start max-sm:gap-4 max-sm:py-5"><svg class="feature-icon shrink-0 max-sm:mb-0 max-sm:h-9 max-sm:w-9" width="42" height="42" aria-hidden="true" focusable="false"><use href="assets/icons.svg#spark"></use></svg><div><h3 class="max-sm:mb-1 max-sm:mt-0">Розумний підбір</h3><p>Отримуйте доречну пару та коротке пояснення вибору.</p></div></article>
+          <article class="feature-card max-sm:flex max-sm:items-start max-sm:gap-4 max-sm:py-5"><svg class="feature-icon shrink-0 max-sm:mb-0 max-sm:h-9 max-sm:w-9" width="42" height="42" aria-hidden="true" focusable="false"><use href="assets/icons.svg#heart"></use></svg><div><h3 class="max-sm:mb-1 max-sm:mt-0">Локальні історії</h3><p>Досліджуйте ідею українського крафту та пропонуйте виробників для каталогу.</p></div></article>
         </div>
       </div>
     </section>
@@ -70,7 +72,7 @@
       <div class="container">
         <div class="section-heading">
           <div><p class="eyebrow">Обрані смаки</p><h2 id="catalog-title">Популярні поєднання</h2></div>
-          <div class="filters" role="group" aria-label="Фільтр каталогу">
+          <p class="catalog-note">Навчальна добірка — назви позицій і поєднання є демонстраційними.</p><div class="filters" role="group" aria-label="Фільтр каталогу">
             <button class="chip active" data-filter="all" type="button">Усі</button>
             <button class="chip" data-filter="soft" type="button">М'які</button>
             <button class="chip" data-filter="hard" type="button">Тверді</button>
@@ -100,12 +102,40 @@
       </div>
     </section>
 
+    <!-- ЛР7 · Медіа-хаб: YouTube-відео в адаптивному контейнері 16:9 + динамічний інформер погоди в <aside> -->
+    <section id="video" class="scroll-mt-24 bg-paper py-16 md:py-24" aria-labelledby="video-title">
+      <div class="container">
+        <p class="mb-4 mt-0 text-xs font-semibold uppercase tracking-widest text-gold">Порада сомельє</p>
+        <h2 id="video-title" class="m-0 max-w-3xl font-display text-3xl font-medium leading-tight text-ink sm:text-4xl lg:text-5xl">Як поєднувати вино зі стравами — за 100 секунд</h2>
+        <p class="mb-0 mt-4 max-w-2xl text-base leading-relaxed text-muted">Короткий український відеоурок пояснює базові принципи гастрономічних пар. Перегляньте його перед підбором, а інформер поруч підкаже, як подати сир і вино за сьогоднішньої погоди у Львові.</p>
+        <div class="mt-10 grid gap-8 lg:grid-cols-3 lg:items-start">
+          <figure class="m-0 min-w-0 lg:col-span-2">
+            <!-- YouTube: aspect-video тримає пропорцію 16:9 без фіксованих width/height; loading="lazy" відкладає завантаження плеєра; title потрібен для екранних читачів -->
+            <iframe class="block aspect-video w-full rounded-media border-0 shadow-lg shadow-black/40" src="https://www.youtube-nocookie.com/embed/udi7ME_guzI" title="Відео YouTube: Про вино за 100 секунд. Поєднання вина та їжі" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <figcaption class="mt-3 text-sm leading-relaxed text-muted">Джерело: YouTube, канал «Громадське телебачення: Черкаси». <a class="font-semibold text-gold underline-offset-4 transition-colors duration-200 hover:text-gold-light focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gold" href="https://www.youtube.com/watch?v=udi7ME_guzI" target="_blank" rel="noopener">Відкрити на YouTube</a></figcaption>
+          </figure>
+          <!-- Динамічний інформер: weather-widget.js (async) запитує Open-Meteo; кольори й радіус беруться зі змінних :root (--widget-bg, --widget-radius) -->
+          <aside id="weather-widget" class="rounded-widget border border-solid border-line bg-widget p-5 shadow-lg shadow-black/30 transition-transform duration-200 hover:-translate-y-0.5 motion-reduce:transition-none sm:p-6" aria-labelledby="weather-title">
+            <h3 id="weather-title" class="m-0 font-display text-xl font-medium text-ink">Погода у Львові й порада подачі</h3>
+            <p class="mb-0 mt-1 text-xs text-muted">Поточні дані Open-Meteo, оновлюються під час відкриття сторінки.</p>
+            <div class="mt-5 flex flex-wrap items-baseline gap-x-3 gap-y-1"><span data-weather="temp" class="font-body text-5xl font-extrabold leading-none tracking-tight text-gold">—</span><span data-weather="desc" class="text-sm text-ink">Завантаження…</span></div>
+            <dl class="mb-0 mt-5 grid grid-cols-2 gap-3 text-sm">
+              <div class="rounded-lg border border-solid border-line p-3"><dt class="text-muted">Вологість</dt><dd data-weather="humidity" class="m-0 font-semibold text-ink">—</dd></div>
+              <div class="rounded-lg border border-solid border-line p-3"><dt class="text-muted">Вітер</dt><dd data-weather="wind" class="m-0 font-semibold text-ink">—</dd></div>
+            </dl>
+            <p data-weather="tip" class="mb-0 mt-5 border-0 border-t border-solid border-line pt-4 text-sm leading-relaxed text-ink" role="status">Підбираємо пораду…</p>
+            <p data-weather="updated" class="mb-0 mt-2 text-xs text-muted"></p>
+          </aside>
+        </div>
+      </div>
+    </section>
+
     <section class="section gallery" id="gallery" aria-labelledby="gallery-title">
       <div class="container"><p class="eyebrow">Натхнення</p><h2 id="gallery-title">Атмосфера дегустації</h2>
         <div class="swiper gallery-swiper"><div class="swiper-wrapper">
-          <a class="swiper-slide gallery-slide g1" href="assets/hero_bg.webp" data-fancybox="gallery" data-caption="Вечір локальних смаків"><span>Вечір локальних смаків</span></a>
-          <a class="swiper-slide gallery-slide g2" href="assets/hero_bg.webp" data-fancybox="gallery" data-caption="Сирна дошка"><span>Сирна дошка</span></a>
-          <a class="swiper-slide gallery-slide g3" href="assets/hero_bg.webp" data-fancybox="gallery" data-caption="Вино з характером"><span>Вино з характером</span></a>
+          <a class="swiper-slide gallery-slide g1" href="assets/gallery_evening.webp" data-fancybox="gallery" data-caption="Вечір локальних смаків"><span>Вечір локальних смаків</span></a>
+          <a class="swiper-slide gallery-slide g2" href="assets/gallery_cheese.webp" data-fancybox="gallery" data-caption="Сирна дошка"><span>Сирна дошка</span></a>
+          <a class="swiper-slide gallery-slide g3" href="assets/gallery_wine_choice.webp" data-fancybox="gallery" data-caption="Оберіть своє вино"><span>Оберіть своє вино</span></a>
         </div><div class="swiper-pagination"></div></div>
       </div>
     </section>
@@ -114,8 +144,48 @@
       <div class="container about-grid"><div><p class="eyebrow">Про проєкт</p><h2 id="about-title">Менше правил — більше вдалих відкриттів</h2><p>«Гурман-Інфо» допомагає початківцям і поціновувачам знаходити локальні продукти, розуміти базові принципи гастрономічних пар і впевнено складати дегустаційні сети.</p><a class="text-link" href="#contact">Запропонувати виробника →</a></div><blockquote>«Добре поєднання не перекриває смак — воно відкриває в ньому нову ноту.»<cite>Редакція «Гурман-Інфо»</cite></blockquote></div>
     </section>
 
+    <!-- ЛР7 · FAQ замість вигаданих відгуків: чесні відповіді про навчальний проєкт -->
+    <section id="faq" class="scroll-mt-24 bg-surface py-16 md:py-24" aria-labelledby="faq-title">
+      <div class="container">
+        <p class="mb-4 mt-0 text-xs font-semibold uppercase tracking-widest text-gold">Прозоро про проєкт</p>
+        <h2 id="faq-title" class="m-0 font-display text-3xl font-medium leading-tight text-ink sm:text-4xl lg:text-5xl">Часті запитання</h2>
+        <div class="mt-10 grid gap-4 md:grid-cols-2">
+          <details class="rounded-widget border border-solid border-line bg-paper p-5 transition-colors duration-200 open:border-gold hover:border-gold sm:p-6">
+            <summary class="cursor-pointer rounded font-semibold text-ink focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gold">Чи можна купити сир і вино на сайті?</summary>
+            <p class="mb-0 mt-3 leading-relaxed text-muted">Ні. «Гурман-Інфо» — навчальний каталог: назви позицій і поєднання демонстраційні, продажу й доставки немає.</p>
+          </details>
+          <details class="rounded-widget border border-solid border-line bg-paper p-5 transition-colors duration-200 open:border-gold hover:border-gold sm:p-6">
+            <summary class="cursor-pointer rounded font-semibold text-ink focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gold">Як працює підбір пари?</summary>
+            <p class="mb-0 mt-3 leading-relaxed text-muted">Ви обираєте тип сиру, інтенсивність смаку й нагоду, а скрипт сторінки пропонує стиль вина, температуру подачі та пояснення. Розрахунок відбувається у браузері.</p>
+          </details>
+          <details class="rounded-widget border border-solid border-line bg-paper p-5 transition-colors duration-200 open:border-gold hover:border-gold sm:p-6">
+            <summary class="cursor-pointer rounded font-semibold text-ink focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gold">Куди потрапляють дані з форми?</summary>
+            <p class="mb-0 mt-3 leading-relaxed text-muted">Нікуди. Форма перевіряє поля локально й показує підтвердження; у навчальній версії дані не надсилаються на сервер.</p>
+          </details>
+          <details class="rounded-widget border border-solid border-line bg-paper p-5 transition-colors duration-200 open:border-gold hover:border-gold sm:p-6">
+            <summary class="cursor-pointer rounded font-semibold text-ink focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gold">Звідки береться погода в інформері?</summary>
+            <p class="mb-0 mt-3 leading-relaxed text-muted">Інформер запитує поточні дані для Львова у відкритому сервісі Open-Meteo. Якщо сервіс недоступний, показується загальне правило подачі.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ЛР7 · Фінальний CTA перед контактами -->
+    <section class="bg-wine py-14 md:py-20" aria-labelledby="cta-title">
+      <div class="container flex flex-col gap-8 md:flex-row md:items-center md:justify-between">
+        <div class="max-w-2xl">
+          <h2 id="cta-title" class="m-0 font-display text-3xl font-medium leading-tight text-ink sm:text-4xl">Готові скласти власну дегустаційну пару?</h2>
+          <p class="mb-0 mt-4 leading-relaxed text-ink">Три параметри — і ви отримаєте стиль вина, температуру подачі та коротке пояснення.</p>
+        </div>
+        <div class="flex shrink-0 flex-col gap-3 sm:flex-row">
+          <a class="inline-flex min-h-12 items-center justify-center rounded-md bg-gold px-6 font-extrabold text-paper no-underline shadow-lg shadow-black/40 transition-colors duration-200 hover:bg-gold-light active:bg-gold-dark focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gold" href="#pairing">Підібрати пару</a>
+          <a class="inline-flex min-h-12 items-center justify-center rounded-md border border-solid border-gold px-6 font-semibold text-ink no-underline transition-colors duration-200 hover:bg-wine-light focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gold" href="#contact">Запропонувати виробника</a>
+        </div>
+      </div>
+    </section>
+
     <section class="section contact" id="contact" aria-labelledby="contact-title">
-      <div class="container contact-grid"><div><p class="eyebrow">Зворотний зв'язок</p><h2 id="contact-title">Поговорімо про локальні смаки</h2><p>Надішліть запитання або розкажіть про українського виробника, якого варто додати до каталогу.</p><div class="contact-note">Відповідаємо протягом 1–2 робочих днів.</div></div>
+      <div class="container contact-grid"><div><p class="eyebrow">Зворотний зв'язок</p><h2 id="contact-title">Поговорімо про локальні смаки</h2><p>Надішліть запитання або розкажіть про українського виробника, якого варто додати до каталогу.</p><div class="contact-note">Навчальна форма: дані не надсилаються.</div></div>
         <form id="contact-form" class="contact-form" novalidate>
           <div class="field"><label for="name">Ім'я</label><input id="name" name="name" autocomplete="name" minlength="2" required><small></small></div>
           <div class="field"><label for="email">Email</label><input id="email" name="email" type="email" autocomplete="email" required><small></small></div>
@@ -125,14 +195,33 @@
           <button class="btn btn-primary" type="submit">Надіслати</button>
         </form>
       </div>
+      <!-- Google Maps: код із «Поділитися → Вбудувати карту»; фіксовані 600×450 замінено обгорткою 4:3 (мобільний) / 16:9 (від 640 px), iframe розтягнуто на 100 % -->
+      <div id="map" class="container mt-14 grid scroll-mt-24 gap-6 lg:grid-cols-3 lg:items-center">
+        <div>
+          <h3 class="m-0 font-display text-2xl font-medium text-ink">Де створено проєкт</h3>
+          <p class="mb-0 mt-3 leading-relaxed text-muted">«Гурман-Інфо» — навчальний проєкт студента НУ «Львівська політехніка». Магазину чи дегустаційної зали немає, тому на карті позначено головний корпус університету: вул. Степана Бандери, 12, Львів.</p>
+          <a class="mt-4 inline-flex min-h-11 items-center font-semibold text-gold underline-offset-4 transition-colors duration-200 hover:text-gold-light focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gold" href="https://www.google.com/maps/search/?api=1&amp;query=%D0%9B%D1%8C%D0%B2%D1%96%D0%B2%D1%81%D1%8C%D0%BA%D0%B0+%D0%BF%D0%BE%D0%BB%D1%96%D1%82%D0%B5%D1%85%D0%BD%D1%96%D0%BA%D0%B0+%D0%A1%D1%82%D0%B5%D0%BF%D0%B0%D0%BD%D0%B0+%D0%91%D0%B0%D0%BD%D0%B4%D0%B5%D1%80%D0%B8+12" target="_blank" rel="noopener">Відкрити в Google Maps</a>
+        </div>
+        <div class="relative aspect-map w-full overflow-hidden rounded-media border border-solid border-line shadow-lg shadow-black/40 sm:aspect-video lg:col-span-2">
+          <iframe class="absolute inset-0 h-full w-full border-0" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2573.363378364026!2d24.012275999999996!3d49.8356294!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x473add7a31f0dccd%3A0x9869cc7025bc8e3f!2z0J3QsNGG0ZbQvtC90LDQu9GM0L3QuNC5INGD0L3RltCy0LXRgNGB0LjRgtC10YIgItCb0YzQstGW0LLRgdGM0LrQsCDQn9C-0LvRltGC0LXRhdC90ZbQutCwIg!5e0!3m2!1suk!2sua!4v1794308876833!5m2!1suk!2sua" title="Карта Google: головний корпус НУ «Львівська політехніка», вул. Степана Бандери, 12, Львів" loading="lazy" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
+        </div>
+      </div>
     </section>
   </main>
 
-  <footer><div class="container footer-grid"><a class="brand footer-brand" href="#top"><img src="assets/logo.svg" alt="" width="40" height="40"><span>Гурман-Інфо</span></a><p>Навчальний вебпроєкт Максима Педича, ПП-21.</p><p>© 2026 Усі права захищено.</p></div></footer>
+  <footer><div class="container footer-grid">
+      <div><a class="brand footer-brand" href="#top"><img src="assets/logo.svg" alt="" width="40" height="40"><span>Гурман-Інфо</span></a><p>Вдалі відкриття починаються<br>з поєднання смаків.</p></div>
+      <div><h2>Досліджуйте</h2><a href="#catalog">Каталог поєднань</a><a href="#gallery">Атмосфера дегустації</a><a href="#video">Порада сомельє</a></div>
+      <div><h2>Знайдіть свою пару</h2><a href="#pairing">Підбір сиру та вина</a><a href="#about">Про проєкт</a><a href="#faq">Часті запитання</a></div>
+      <div><h2>Залишаймося на зв’язку</h2><a href="#contact">Запропонувати виробника</a><a href="#map">Де створено проєкт</a><p>Максим Педич · ПП-21<br>Навчальний проєкт · 2026</p></div>
+    </div><div class="container footer-bottom">Гурман-Інфо <span>Створено з увагою до смаку</span></div></footer>
 
   <dialog id="success-dialog"><button class="dialog-close" type="button" aria-label="Закрити">×</button><div class="success-icon">✓</div><h2>Дякуємо!</h2><p>Повідомлення успішно перевірено. У навчальній версії дані не передаються на сервер.</p><button class="btn btn-primary dialog-ok" type="button">Готово</button></dialog>
-  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
-  <script src="script.js"></script>
+  <script defer src="hero-player.js?v=floating-nav-4"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
+  <script defer src="script.js?v=lab7-1"></script>
+  <script async src="weather-widget.js?v=lab7-1"></script>
 </body>
 </html>
+
