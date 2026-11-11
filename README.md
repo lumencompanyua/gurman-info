@@ -7,7 +7,7 @@
 ## Живі версії
 
 - GitHub Pages: https://lumencompanyua.github.io/gurman-info/
-- Netlify: https://gurman-info-lab7.netlify.app
+- Netlify: https://gurman-info.netlify.app
 - Репозиторій: https://github.com/lumencompanyua/gurman-info
 
 ## Запуск
@@ -51,4 +51,4 @@ Figma: https://www.figma.com/design/minnVc79WpCXVNTmFLSgxd
 
 Перезбірка стилів: `npx tailwindcss@3.4.17 -c tailwind.config.js -i tailwind.input.css -o assets/tailwind.css --minify`.
 
-Опубліковано на Netlify: https://gurman-info-lab7.netlify.app (сайт `gurman-info-lab7`; оновлення — `netlify deploy --prod --dir ../Матеріали/ЛР7_Netlify_deploy` або перетягування папки у вкладку Deploys).
+Опубліковано на Netlify: https://gurman-info.netlify.app (сайт `gurman-info`; оновлюється автоматично після push у `main`).
