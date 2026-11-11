@@ -1,34 +1,25 @@
-name: Validate and deploy static site
+name: Validate static site
+# Публікацію виконує GitHub Pages у режимі «Deploy from a branch» (main, /root),
+# тому workflow лише перевіряє, що в коміті є всі файли, потрібні сайту.
 on:
   push:
     branches: [main]
+  pull_request:
   workflow_dispatch:
 permissions:
   contents: read
-  pages: write
-  id-token: write
-concurrency:
-  group: pages
-  cancel-in-progress: true
 jobs:
   validate:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - name: Verify required files
-        run: test -f index.html && test -f styles.css && test -f script.js && test -f assets/logo.svg
-  deploy:
-    needs: validate
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/configure-pages@v5
-      - uses: actions/upload-pages-artifact@v3
-        with:
-          path: .
-      - name: Deploy
-        id: deployment
-        uses: actions/deploy-pages@v4
+        run: |
+          for f in index.html styles.css script.js hero-player.js weather-widget.js assets/tailwind.css assets/logo.svg assets/icons.svg assets/hero_bg.webp assets/hero_motion.mp4; do
+            test -f "$f" || { echo "Missing $f"; exit 1; }
+          done
+      - name: Check local asset links
+        run: |
+          grep -oE '(src|href)="assets/[^"#?]+' index.html | sed 's/.*="//' | sort -u | while read -r f; do
+            test -f "$f" || { echo "Broken link: $f"; exit 1; }
+          done
