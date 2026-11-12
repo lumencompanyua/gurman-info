@@ -32,6 +32,7 @@
   });
   video.addEventListener('error', () => {
     hero.classList.remove('has-video-frame');
+    still.srcset = 'assets/hero_bg-800.webp 800w, assets/hero_bg.webp 1672w';
     still.src = 'assets/hero_bg.webp';
     hero.dataset.videoState = 'unavailable';
     control.hidden = true;
@@ -40,9 +41,10 @@
   reduced.addEventListener('change', event => { if (event.matches) video.pause(); });
 
   if (!reduced.matches && !demo) {
-    still.src = video.poster;
+    // ЛР12: кадр-постер і відео (1,4 МБ) не конкурують з першим екраном — підставляються лише після load.
     const startAfterSitePaint = () => {
       if (started || reduced.matches) return;
+      if (video.dataset.poster && !video.poster) video.poster = video.dataset.poster; // той самий кадр, що й на картинці
       requestAnimationFrame(() => requestAnimationFrame(play));
     };
     if (document.readyState === 'complete') startAfterSitePaint();
