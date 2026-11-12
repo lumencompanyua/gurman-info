@@ -78,6 +78,6 @@ Figma: https://www.figma.com/design/minnVc79WpCXVNTmFLSgxd
 ## Лабораторна №12 — аудит Lighthouse, оптимізація та CI/CD
 
 - Гілка `performance-audit`, злита в `main` після перевірок.
-- Продуктивність: адаптивні зображення (`srcset`, версії 800 px), відео Hero вантажиться лише після `load`, Swiper і Fancybox підвантажуються при наближенні до галереї, «фасад» YouTube замість iframe до натискання, шрифти Google без блокування відображення, з `styles.css` прибрано 60 мертвих правил.
+- Продуктивність: адаптивні зображення (`srcset`, версії 800 px), відео Hero вантажиться лише після `load` (на телефонах — за кнопкою), шрифти Manrope і Playfair Display розміщено в `assets/fonts`, Swiper і Fancybox підвантажуються при наближенні до галереї, «фасад» YouTube замість iframe до натискання, шрифти Google без блокування відображення, з `styles.css` прибрано 60 мертвих правил.
 - Доступність: стрілки слайдера 48×48 px. SEO: `canonical`, Open Graph, `robots.txt`, `sitemap.xml`. Best Practices: `rel="noopener noreferrer"`.
 - CI/CD: `.github/workflows/deploy.yml` — job `validate` перевіряє файли й посилання, job `deploy` публікує на Vercel через Vercel CLI (секрет `VERCEL_TOKEN`); автодеплой Vercel із Git вимкнено у `vercel.json`, щоб сайт публікувався один раз.

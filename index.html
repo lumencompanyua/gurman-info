@@ -7,15 +7,13 @@
   <meta name="keywords" content="крафтовий сир, українське вино, поєднання сиру і вина, гастрономічний каталог">
   <meta name="theme-color" content="#180b10">
   <title>Гурман-Інфо — крафтові сири та вина</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <!-- ЛР12 · Шрифти не блокують перший показ: CSS Google Fonts вантажиться як preload і вмикається після завантаження
-       (display=swap — до цього текст видно запасним шрифтом). CSS і JS Swiper та Fancybox підвантажує assets/js/media.js,
+  <!-- ЛР12 · Шрифти розміщено на сайті (assets/fonts, @font-face у styles.css, font-display: swap); кириличні файли
+       першого екрана завантажуються заздалегідь. CSS і JS Swiper та Fancybox підвантажує assets/js/media.js,
        коли галерея наближається до екрана. -->
-  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap"></noscript>
-  <link rel="stylesheet" href="styles.css?v=lab12-1">
-  <link rel="stylesheet" href="assets/tailwind.css?v=lab12-1">
+  <link rel="preload" href="assets/fonts/manrope-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/playfair-display-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="styles.css?v=lab12-2">
+  <link rel="stylesheet" href="assets/tailwind.css?v=lab12-2">
   <!-- ЛР12 · SEO: канонічна адреса (сайт дзеркалиться на Netlify і GitHub Pages) та Open Graph для соцмереж -->
   <link rel="canonical" href="https://gurman-info.vercel.app/">
   <meta property="og:type" content="website">
@@ -406,7 +404,7 @@
       <button id="closeModalBtn" class="btn btn-primary mt-6 min-h-12 font-extrabold transition-colors duration-200 hover:bg-gold-light focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gold" type="button">Закрити</button>
     </div>
   </div>
-  <script defer src="hero-player.js?v=lab12-1"></script>
+  <script defer src="hero-player.js?v=lab12-2"></script>
   <script defer src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12/lib/typed.min.js"></script>
   <script defer src="script.js?v=lab10-1"></script>
   <script defer src="assets/js/validation.js?v=lab9-1"></script>

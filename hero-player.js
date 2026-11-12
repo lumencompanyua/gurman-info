@@ -14,8 +14,13 @@
   function syncControl() {
     control.textContent = video.ended ? 'Повторити відео' : video.paused ? 'Відтворити відео' : 'Призупинити відео';
   }
+  // ЛР12: постер — та сама картинка, що вже завантажена для першого екрана (на телефоні — версія 800 px), без повторного запиту.
+  function setPoster() {
+    if (!video.poster) video.poster = still.currentSrc || video.dataset.poster;
+  }
   function play() {
     started = true;
+    setPoster();
     if (video.ended) video.currentTime = 0;
     video.play().catch(() => { hero.dataset.videoState = 'awaiting-play'; syncControl(); });
   }
@@ -40,11 +45,15 @@
   control.addEventListener('click', () => video.paused || video.ended ? play() : video.pause());
   reduced.addEventListener('change', event => { if (event.matches) video.pause(); });
 
-  if (!reduced.matches && !demo) {
-    // ЛР12: кадр-постер і відео (1,4 МБ) не конкурують з першим екраном — підставляються лише після load.
+  // ЛР12: відео (1,4 МБ) стартує саме лише на екранах від 768 px і без режиму економії трафіку;
+  // на телефоні його вмикають кнопкою «Відтворити відео», а перший екран показує той самий кадр як картинку.
+  const saveData = Boolean(navigator.connection && navigator.connection.saveData);
+  const autoplayAllowed = matchMedia('(min-width: 768px)').matches && !saveData;
+
+  if (!reduced.matches && !demo && autoplayAllowed) {
+    // Відео не конкурує з першим екраном — запускається лише після події load.
     const startAfterSitePaint = () => {
       if (started || reduced.matches) return;
-      if (video.dataset.poster && !video.poster) video.poster = video.dataset.poster; // той самий кадр, що й на картинці
       requestAnimationFrame(() => requestAnimationFrame(play));
     };
     if (document.readyState === 'complete') startAfterSitePaint();
