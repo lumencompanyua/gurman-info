@@ -1,6 +1,9 @@
-name: Validate static site
-# Публікацію виконує GitHub Pages у режимі «Deploy from a branch» (main, /root),
-# тому workflow лише перевіряє, що в коміті є всі файли, потрібні сайту.
+name: CI/CD Production Deploy
+# ЛР12 · Безперервна інтеграція та розгортання:
+#   1) validate — перевіряє, що в коміті є всі файли сайту й усі локальні посилання на assets ведуть до наявних файлів;
+#   2) deploy — лише після успішної перевірки й лише для push у main публікує сайт на Vercel через Vercel CLI.
+# Токен Vercel зберігається в секреті репозиторію VERCEL_TOKEN (Settings → Secrets and variables → Actions).
+# GitHub Pages і далі збирається з гілки main, Netlify — через власний вебхук.
 on:
   push:
     branches: [main]
@@ -8,18 +11,41 @@ on:
   workflow_dispatch:
 permissions:
   contents: read
+env:
+  # Ідентифікатори команди й проєкту Vercel: без токена ними нічого не зробити, тому вони не секретні.
+  VERCEL_ORG_ID: team_xvygN8ENn1TfK2pPK95WXLtk
+  VERCEL_PROJECT_ID: prj_jSLPaj6gSALRAHLZaCvA0ZInZj5s
 jobs:
   validate:
+    name: Validate static site
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout Code
+        uses: actions/checkout@v4
       - name: Verify required files
         run: |
-          for f in index.html styles.css script.js hero-player.js weather-widget.js assets/js/validation.js assets/js/media.js assets/js/widget.js assets/tailwind.css assets/logo.svg assets/icons.svg assets/hero_bg.webp assets/hero_motion.mp4; do
+          for f in index.html styles.css script.js hero-player.js weather-widget.js robots.txt sitemap.xml \
+                   assets/js/validation.js assets/js/media.js assets/js/widget.js assets/tailwind.css \
+                   assets/logo.svg assets/icons.svg assets/hero_bg.webp assets/hero_motion.mp4; do
             test -f "$f" || { echo "Missing $f"; exit 1; }
           done
-      - name: Check local asset links
+      - name: Check local asset links (src, href, srcset, data-*)
         run: |
-          grep -oE '(src|href)="assets/[^"#?]+' index.html | sed 's/.*="//' | sort -u | while read -r f; do
+          grep -oE 'assets/[A-Za-z0-9_./-]+\.(webp|svg|mp4|css|js|png|jpe?g)' index.html | sort -u | while read -r f; do
             test -f "$f" || { echo "Broken link: $f"; exit 1; }
           done
+
+  deploy:
+    name: Deploy to Vercel (production)
+    needs: validate
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+      - name: Install Vercel CLI
+        run: npm install --global vercel@latest
+      - name: Pull Vercel Environment Information
+        run: vercel pull --yes --environment=production --token=${{ secrets.VERCEL_TOKEN }}
+      - name: Deploy Project Artifacts to Vercel
+        run: vercel deploy --prod --yes --token=${{ secrets.VERCEL_TOKEN }}
