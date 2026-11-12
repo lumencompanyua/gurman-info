@@ -105,6 +105,62 @@
       </div>
     </section>
 
+    <!-- ЛР11 · Інтерактивний віджет «Калькулятор дегустації»: 5 параметрів → орієнтовна кількість сиру, вина й супроводу.
+         Перерахунок миттєвий (input / change), логіка й захист від Edge Cases — assets/js/widget.js -->
+    <section id="calculator" class="scroll-mt-24 bg-surface py-16 md:py-24" aria-labelledby="calculator-title">
+      <div class="container">
+        <p class="eyebrow">Планування дегустації</p>
+        <h2 id="calculator-title" class="m-0 max-w-3xl font-display text-3xl font-medium leading-tight text-ink sm:text-4xl lg:text-5xl">Скільки сиру й вина знадобиться?</h2>
+        <p class="mb-0 mt-4 max-w-2xl text-base leading-relaxed text-muted">Вкажіть кількість гостей і формат вечора — калькулятор одразу порахує орієнтовну кількість. Норми усереднені, тож для великої компанії варто мати невеликий запас.</p>
+        <div class="mt-10 grid gap-6 lg:grid-cols-5 lg:items-start" data-calc>
+          <form class="grid grid-cols-1 gap-x-6 gap-y-5 rounded-widget border border-solid border-line bg-widget p-5 shadow-lg shadow-black/30 sm:grid-cols-2 sm:p-8 lg:col-span-3" novalidate aria-label="Параметри дегустації">
+            <div>
+              <label for="calc-guests" class="mb-2 block text-sm font-semibold text-ink">Кількість гостей</label>
+              <input id="calc-guests" data-field="guests" type="number" inputmode="numeric" min="1" max="50" step="1" value="6" required aria-describedby="calc-guests-hint calc-guests-error" aria-invalid="false" class="block min-h-12 w-full rounded-lg border border-solid border-line bg-paper px-4 py-3 font-body text-base text-ink transition-colors duration-200 hover:border-gold-dark focus-visible:border-gold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold">
+              <p id="calc-guests-hint" class="mb-0 mt-2 text-xs text-muted">Ціле число від 1 до 50.</p>
+              <p id="calc-guests-error" data-error="guests" class="mb-0 mt-1 hidden text-sm leading-snug text-red-300"></p>
+            </div>
+            <div>
+              <label for="calc-format" class="mb-2 block text-sm font-semibold text-ink">Формат</label>
+              <select id="calc-format" data-field="format" class="block min-h-12 w-full cursor-pointer rounded-lg border border-solid border-line bg-paper px-4 py-3 font-body text-base text-ink transition-colors duration-200 hover:border-gold-dark focus-visible:border-gold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold">
+                <option value="aperitif">Аперитив: сир як закуска</option>
+                <option value="tasting" selected>Дегустація: кілька пар</option>
+                <option value="dinner">Вечеря: сир — головна страва</option>
+              </select>
+            </div>
+            <div>
+              <label for="calc-hours" class="mb-2 block text-sm font-semibold text-ink">Тривалість: <output id="calc-hours-output" data-output="hours" for="calc-hours">2</output> год</label>
+              <input id="calc-hours" data-field="hours" type="range" min="1" max="5" step="1" value="2" aria-describedby="calc-hours-hint" class="block h-12 w-full cursor-pointer accent-gold">
+              <p id="calc-hours-hint" class="mb-0 mt-1 text-xs text-muted">Від 1 до 5 годин.</p>
+            </div>
+            <div>
+              <label for="calc-varieties" class="mb-2 block text-sm font-semibold text-ink">Видів сиру</label>
+              <input id="calc-varieties" data-field="varieties" type="number" inputmode="numeric" min="3" max="7" step="1" value="4" required aria-describedby="calc-varieties-hint calc-varieties-error" aria-invalid="false" class="block min-h-12 w-full rounded-lg border border-solid border-line bg-paper px-4 py-3 font-body text-base text-ink transition-colors duration-200 hover:border-gold-dark focus-visible:border-gold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold">
+              <p id="calc-varieties-hint" class="mb-0 mt-2 text-xs text-muted">Від 3 до 7: менше — нудно, більше — смаки змішуються.</p>
+              <p id="calc-varieties-error" data-error="varieties" class="mb-0 mt-1 hidden text-sm leading-snug text-red-300"></p>
+            </div>
+            <div class="flex items-start gap-3 sm:col-span-2">
+              <input id="calc-extras" data-field="extras" type="checkbox" checked class="mt-0.5 h-6 w-6 shrink-0 cursor-pointer accent-gold focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold">
+              <label for="calc-extras" class="cursor-pointer text-sm leading-relaxed text-ink">Додати супровід: мед, горіхи й виноград</label>
+            </div>
+            <div class="sm:col-span-2">
+              <button type="reset" class="btn btn-ghost min-h-12 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gold">Скинути до прикладу</button>
+            </div>
+          </form>
+          <div class="rounded-widget border border-solid border-line bg-paper p-5 sm:p-8 lg:col-span-2">
+            <h3 class="m-0 font-display text-2xl font-medium text-ink">Орієнтовний розрахунок</h3>
+            <dl class="mb-0 mt-5 grid gap-3">
+              <div class="flex items-baseline justify-between gap-4 border-0 border-b border-solid border-line pb-3"><dt class="text-muted">Сир загалом</dt><dd class="m-0 text-right font-body text-2xl font-extrabold text-gold" data-result="cheese">—</dd></div>
+              <div class="flex items-baseline justify-between gap-4 border-0 border-b border-solid border-line pb-3"><dt class="text-muted">На кожен вид</dt><dd class="m-0 text-right font-semibold text-ink" data-result="perVariety">—</dd></div>
+              <div class="flex items-baseline justify-between gap-4 border-0 border-b border-solid border-line pb-3"><dt class="text-muted">Вино</dt><dd class="m-0 text-right font-semibold text-ink" data-result="wine">—</dd></div>
+              <div class="flex items-baseline justify-between gap-4"><dt class="text-muted">Супровід</dt><dd class="m-0 text-right font-semibold text-ink" data-result="extras">—</dd></div>
+            </dl>
+            <p class="mb-0 mt-5 text-sm leading-relaxed text-muted" data-result="summary" aria-live="polite"></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- ЛР7 · Медіа-хаб: YouTube-відео в адаптивному контейнері 16:9 + динамічний інформер погоди в <aside> -->
     <section id="video" class="scroll-mt-24 bg-paper py-16 md:py-24" aria-labelledby="video-title">
       <div class="container">
@@ -313,7 +369,7 @@
   <footer><div class="container footer-grid">
       <div><a class="brand footer-brand" href="#top"><img src="assets/logo.svg" alt="" width="40" height="40"><span>Гурман-Інфо</span></a><p>Вдалі відкриття починаються<br>з поєднання смаків.</p></div>
       <div><h2>Досліджуйте</h2><a href="#catalog">Каталог поєднань</a><a href="#gallery">Атмосфера дегустації</a><a href="#video">Порада сомельє</a></div>
-      <div><h2>Знайдіть свою пару</h2><a href="#pairing">Підбір сиру та вина</a><a href="#about">Про проєкт</a><a href="#faq">Часті запитання</a></div>
+      <div><h2>Знайдіть свою пару</h2><a href="#pairing">Підбір сиру та вина</a><a href="#calculator">Калькулятор дегустації</a><a href="#about">Про проєкт</a><a href="#faq">Часті запитання</a></div>
       <div><h2>Залишаймося на зв’язку</h2><a href="#contact">Запропонувати виробника</a><a href="#map">Де створено проєкт</a><a href="https://github.com/lumencompanyua/gurman-info" target="_blank" rel="noopener">Код проєкту на GitHub</a><p>Максим Педич · ПП-21<br>Навчальний проєкт · 2026</p></div>
     </div><div class="container footer-bottom">Гурман-Інфо <span>Створено з увагою до смаку</span></div></footer>
 
@@ -334,6 +390,7 @@
   <script defer src="script.js?v=lab10-1"></script>
   <script defer src="assets/js/validation.js?v=lab9-1"></script>
   <script defer src="assets/js/media.js?v=lab10-1"></script>
+  <script defer src="assets/js/widget.js?v=lab11-1"></script>
   <script async src="weather-widget.js?v=lab7-1"></script>
 </body>
 </html>
