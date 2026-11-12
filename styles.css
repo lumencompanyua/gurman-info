@@ -502,7 +502,9 @@ nav a:hover:after,nav a:focus-visible:after {
   background:var(--cream)
 }
 
-.gallery-swiper {
+/* ЛР12: CSS Swiper тепер підвантажується після цього файлу, а його .swiper { padding:0 } має ту саму вагу,
+   тому селектор посилено до .swiper.gallery-swiper — інакше пагінація налазить на підписи слайдів. */
+.gallery-swiper,.swiper.gallery-swiper {
   margin-top:38px;
   padding-bottom:48px
 }
