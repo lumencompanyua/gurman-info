@@ -184,15 +184,69 @@
       </div>
     </section>
 
+    <!-- ЛР9 · Форма зворотного зв'язку: label/for + id, правильні type, область помилки під кожним полем (aria-describedby),
+         стани normal / focus / error / success на класах Tailwind; логіка валідації — assets/js/validation.js -->
     <section class="section contact" id="contact" aria-labelledby="contact-title">
-      <div class="container contact-grid"><div><p class="eyebrow">Зворотний зв'язок</p><h2 id="contact-title">Поговорімо про локальні смаки</h2><p>Надішліть запитання або розкажіть про українського виробника, якого варто додати до каталогу.</p><div class="contact-note">Навчальна форма: дані не надсилаються.</div></div>
-        <form id="contact-form" class="contact-form" novalidate>
-          <div class="field"><label for="name">Ім'я</label><input id="name" name="name" autocomplete="name" minlength="2" required><small></small></div>
-          <div class="field"><label for="email">Email</label><input id="email" name="email" type="email" autocomplete="email" required><small></small></div>
-          <div class="field"><label for="phone">Телефон</label><input id="phone" name="phone" type="tel" inputmode="tel" placeholder="+380 XX XXX XX XX" required><small></small></div>
-          <div class="field"><label for="message">Повідомлення</label><textarea id="message" name="message" rows="4" minlength="10" required></textarea><small></small></div>
-          <label class="consent"><input id="consent" type="checkbox" required> <span>Погоджуюся на обробку даних для відповіді на звернення.</span></label>
-          <button class="btn btn-primary" type="submit">Надіслати</button>
+      <div class="container">
+        <div class="mx-auto max-w-3xl text-center">
+          <p class="eyebrow">Зворотний зв'язок</p>
+          <h2 id="contact-title">Поговорімо про локальні смаки</h2>
+          <p class="mx-auto mb-0 mt-3 max-w-2xl leading-relaxed text-muted">Надішліть запитання або розкажіть про українського виробника, якого варто додати до каталогу.</p>
+        </div>
+        <form id="feedbackForm" class="mx-auto mt-10 grid max-w-3xl grid-cols-1 gap-x-6 gap-y-5 rounded-widget border border-solid border-line bg-widget p-5 shadow-lg shadow-black/30 sm:p-8 md:grid-cols-2" novalidate aria-describedby="formNote">
+          <p id="formNote" class="m-0 rounded-lg border border-solid border-line bg-paper px-4 py-3 text-sm leading-relaxed text-muted md:col-span-2">Усі поля обов'язкові. Навчальна форма: дані перевіряються в браузері й нікуди не надсилаються.</p>
+
+          <div>
+            <label for="username" class="mb-2 block text-sm font-semibold text-ink">Ім'я</label>
+            <input id="username" name="username" type="text" autocomplete="name" maxlength="50" required aria-describedby="nameError" aria-invalid="false" data-error="nameError" class="block min-h-12 w-full rounded-lg border border-solid border-line bg-paper px-4 py-3 font-body text-base text-ink transition-colors duration-200 placeholder:text-muted hover:border-gold-dark focus-visible:border-gold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold">
+            <p id="nameError" class="mb-0 mt-2 hidden text-sm leading-snug text-red-300"></p>
+          </div>
+
+          <div>
+            <label for="email" class="mb-2 block text-sm font-semibold text-ink">Електронна пошта</label>
+            <input id="email" name="email" type="email" autocomplete="email" inputmode="email" maxlength="254" required aria-describedby="emailError" aria-invalid="false" data-error="emailError" class="block min-h-12 w-full rounded-lg border border-solid border-line bg-paper px-4 py-3 font-body text-base text-ink transition-colors duration-200 placeholder:text-muted hover:border-gold-dark focus-visible:border-gold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold">
+            <p id="emailError" class="mb-0 mt-2 hidden text-sm leading-snug text-red-300"></p>
+          </div>
+
+          <div>
+            <label for="phone" class="mb-2 block text-sm font-semibold text-ink">Телефон</label>
+            <input id="phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" placeholder="+380501234567" required aria-describedby="phoneHint phoneError" aria-invalid="false" data-error="phoneError" class="block min-h-12 w-full rounded-lg border border-solid border-line bg-paper px-4 py-3 font-body text-base text-ink transition-colors duration-200 placeholder:text-muted hover:border-gold-dark focus-visible:border-gold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold">
+            <p id="phoneHint" class="mb-0 mt-2 text-xs leading-snug text-muted">Формат: +380 і 9 цифр без пробілів.</p>
+            <p id="phoneError" class="mb-0 mt-1 hidden text-sm leading-snug text-red-300"></p>
+          </div>
+
+          <div>
+            <label for="topic" class="mb-2 block text-sm font-semibold text-ink">Тема</label>
+            <select id="topic" name="topic" required aria-describedby="topicError" aria-invalid="false" data-error="topicError" class="block min-h-12 w-full cursor-pointer rounded-lg border border-solid border-line bg-paper px-4 py-3 font-body text-base text-ink transition-colors duration-200 hover:border-gold-dark focus-visible:border-gold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold">
+              <option value="" selected disabled>Оберіть тему</option>
+              <option value="producer">Запропонувати виробника</option>
+              <option value="pairing">Питання про підбір пари</option>
+              <option value="other">Інше</option>
+            </select>
+            <p id="topicError" class="mb-0 mt-2 hidden text-sm leading-snug text-red-300"></p>
+          </div>
+
+          <div class="md:col-span-2">
+            <label for="message" class="mb-2 block text-sm font-semibold text-ink">Повідомлення</label>
+            <textarea id="message" name="message" rows="5" maxlength="1000" required aria-describedby="messageCounter messageError" aria-invalid="false" data-error="messageError" class="block min-h-32 w-full resize-y rounded-lg border border-solid border-line bg-paper px-4 py-3 font-body text-base leading-relaxed text-ink transition-colors duration-200 hover:border-gold-dark focus-visible:border-gold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold"></textarea>
+            <div class="mt-2 flex flex-wrap items-start justify-between gap-x-4 gap-y-1">
+              <p id="messageError" class="m-0 hidden text-sm leading-snug text-red-300"></p>
+              <p id="messageCounter" class="m-0 ml-auto text-xs text-muted">0 / 1000</p>
+            </div>
+          </div>
+
+          <div class="md:col-span-2">
+            <div class="flex items-start gap-3">
+              <input id="agreement" name="agreement" type="checkbox" required aria-describedby="agreementError" aria-invalid="false" data-error="agreementError" class="mt-0.5 h-6 w-6 shrink-0 cursor-pointer rounded accent-gold focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold">
+              <label for="agreement" class="cursor-pointer text-sm leading-relaxed text-ink">Погоджуюся, що введені дані використовуються лише для перевірки форми в навчальному проєкті.</label>
+            </div>
+            <p id="agreementError" class="mb-0 mt-2 hidden text-sm leading-snug text-red-300"></p>
+          </div>
+
+          <div class="flex flex-col gap-3 sm:flex-row sm:items-center md:col-span-2">
+            <button id="submitBtn" class="btn btn-primary min-h-12 w-full font-extrabold transition-colors duration-200 hover:bg-gold-light focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gold active:bg-gold-dark disabled:cursor-wait disabled:opacity-70 sm:w-auto" type="submit">Надіслати</button>
+            <p id="formStatus" class="m-0 text-sm leading-snug text-muted" role="status" aria-live="polite"></p>
+          </div>
         </form>
       </div>
       <!-- Google Maps: код із «Поділитися → Вбудувати карту»; фіксовані 600×450 замінено обгорткою 4:3 (мобільний) / 16:9 (від 640 px), iframe розтягнуто на 100 % -->
@@ -216,11 +270,21 @@
       <div><h2>Залишаймося на зв’язку</h2><a href="#contact">Запропонувати виробника</a><a href="#map">Де створено проєкт</a><a href="https://github.com/lumencompanyua/gurman-info" target="_blank" rel="noopener">Код проєкту на GitHub</a><p>Максим Педич · ПП-21<br>Навчальний проєкт · 2026</p></div>
     </div><div class="container footer-bottom">Гурман-Інфо <span>Створено з увагою до смаку</span></div></footer>
 
-  <dialog id="success-dialog"><button class="dialog-close" type="button" aria-label="Закрити">×</button><div class="success-icon">✓</div><h2>Дякуємо!</h2><p>Повідомлення успішно перевірено. У навчальній версії дані не передаються на сервер.</p><button class="btn btn-primary dialog-ok" type="button">Готово</button></dialog>
+  <!-- ЛР9 · Модальне вікно успіху: з'являється лише після успішної клієнтської валідації.
+       fixed inset-0 + затемнений фон перекривають сторінку; закривається кнопкою, Escape або кліком по фону (не по картці) -->
+  <div id="successModal" class="fixed inset-0 z-modal hidden items-center justify-center bg-black/75 p-4" role="dialog" aria-modal="true" aria-labelledby="successTitle" aria-describedby="successText">
+    <div class="w-full max-w-md rounded-widget border border-solid border-line bg-widget p-6 text-center shadow-2xl shadow-black/60 sm:p-8">
+      <div class="mx-auto mb-4 grid h-14 w-14 place-items-center rounded-full bg-gold font-body text-2xl font-extrabold text-paper" aria-hidden="true">✓</div>
+      <h2 id="successTitle" class="m-0 font-display text-2xl font-medium text-ink">Дякуємо!</h2>
+      <p id="successText" class="mb-0 mt-3 leading-relaxed text-muted">Форма успішно пройшла клієнтську валідацію. Це демонстрація надсилання: у навчальній версії дані не передаються на сервер.</p>
+      <button id="closeModalBtn" class="btn btn-primary mt-6 min-h-12 font-extrabold transition-colors duration-200 hover:bg-gold-light focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gold" type="button">Закрити</button>
+    </div>
+  </div>
   <script defer src="hero-player.js?v=floating-nav-4"></script>
   <script defer src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   <script defer src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
-  <script defer src="script.js?v=lab7-1"></script>
+  <script defer src="script.js?v=lab9-1"></script>
+  <script defer src="assets/js/validation.js?v=lab9-1"></script>
   <script async src="weather-widget.js?v=lab7-1"></script>
 </body>
 </html>

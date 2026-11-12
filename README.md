@@ -52,3 +52,11 @@ Figma: https://www.figma.com/design/minnVc79WpCXVNTmFLSgxd
 Перезбірка стилів: `npx tailwindcss@3.4.17 -c tailwind.config.js -i tailwind.input.css -o assets/tailwind.css --minify`.
 
 Опубліковано на Netlify: https://gurman-info.netlify.app (сайт `gurman-info`; оновлюється автоматично після push у `main`).
+
+## Лабораторна №9 — форма зворотного зв'язку та клієнтська валідація
+
+- Форма в секції «Контакти»: ім'я, email, телефон, тема, повідомлення, згода; `label for` + `id`, `aria-describedby`, `aria-invalid`.
+- Tailwind-стани полів: normal, focus (`focus-visible:ring`), error (`border-red-500` + текст під полем), success (`border-green-500`); на телефоні одна колонка, від `md` — дві.
+- Валідація в `assets/js/validation.js` (Vanilla JS): RegEx для імені, email і телефону `^\+380\d{9}$`; перевірка на `blur`, `input` після першої взаємодії й на `submit`.
+- Edge Cases телефону: `0501234567`, `380…`, номер із пробілами чи дужками приводяться до `+380XXXXXXXXX`; літери та зайві цифри дають зрозумілу помилку.
+- Модальне вікно успіху: показується лише після валідації, закривається кнопкою, `Escape` або кліком по фону; фокус повертається на кнопку «Надіслати». Реального надсилання немає.

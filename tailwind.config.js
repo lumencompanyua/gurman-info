@@ -1,6 +1,7 @@
 /** Tailwind CSS для ЛР7: токени беруться з дизайн-системи «Гурман-Інфо» (змінні :root у styles.css). */
 module.exports = {
-  content: ['./index.html', './weather-widget.js'],
+  // Класи станів форми (border-red-500 тощо) додаються з JS, тому Tailwind переглядає й скрипти.
+  content: ['./index.html', './weather-widget.js', './assets/js/*.js'],
   // Наявні стилі ЛР3–6 мають власний reset, тому preflight вимкнено, щоб не зламати старі блоки.
   // container вимкнено: сітку задає .container з дизайн-системи ЛР4, нові секції використовують той самий клас.
   corePlugins: { preflight: false, container: false },
@@ -24,6 +25,8 @@ module.exports = {
       },
       borderRadius: { widget: 'var(--widget-radius)', media: 'var(--media-radius)' },
       aspectRatio: { map: '4 / 3' },
+      // Модальне вікно має бути над закріпленою шапкою (її z-index у styles.css — 99).
+      zIndex: { modal: '100' },
     },
   },
 };

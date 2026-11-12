@@ -6,20 +6,13 @@ $$('.chip').forEach(btn=>btn.addEventListener('click',()=>{$$('.chip').forEach(b
 const intensity=$('#intensity'),intensityOutput=$('#intensity-output'); intensity.addEventListener('input',()=>intensityOutput.value=intensity.value);
 const pairings={soft:{wine:'ігристе брют',temp:'8–10 °C',note:'Кислотність і бульбашки освіжають вершковий смак.'},hard:{wine:'сухе червоне з м’якими танінами',temp:'15–17 °C',note:'Насиченість вина підтримує горіхові ноти витриманого сиру.'},blue:{wine:'солодке біле або портвейн',temp:'10–12 °C',note:'Солодкість врівноважує солоність та пікантність.'},goat:{wine:'совіньйон блан',temp:'8–10 °C',note:'Свіжа кислотність підкреслює трав’яні й цитрусові відтінки.'}};
 $('#pairing-form').addEventListener('submit',e=>{e.preventDefault();const cheese=$('#cheese').value,occasion=$('#occasion').value,msg=$('#pairing-message'),result=$('#pairing-result');if(!cheese||!occasion){msg.textContent='Оберіть тип сиру та нагоду — щоб отримати рекомендацію.';result.hidden=true;return}const p=pairings[cheese];const accent=Number(intensity.value)>=4?'Для інтенсивного смаку оберіть вино з виразнішим тілом.':'Зберігайте баланс: вино не має домінувати.';msg.textContent='';result.innerHTML=`<h3>${p.wine}</h3><p><strong>Подача:</strong> ${p.temp}. ${p.note} ${accent}</p>`;result.hidden=false;if(!new URLSearchParams(location.search).has('demo'))result.scrollIntoView({behavior:'smooth',block:'nearest'})});
-const emailRe=/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i,phoneRe=/^\+380\s?\d{2}\s?\d{3}\s?\d{2}\s?\d{2}$/;
-function validate(field){const wrap=field.closest('.field');let error='';const value=field.value.trim();if(!value)error='Поле обов’язкове.';else if(field.id==='name'&&value.length<2)error='Введіть щонайменше 2 символи.';else if(field.id==='email'&&!emailRe.test(value))error='Перевірте формат email.';else if(field.id==='phone'&&!phoneRe.test(value))error='Формат: +380 XX XXX XX XX.';else if(field.id==='message'&&value.length<10)error='Повідомлення має містити щонайменше 10 символів.';wrap.classList.toggle('invalid',Boolean(error));$('small',wrap).textContent=error;field.setAttribute('aria-invalid',Boolean(error));return !error}
-$$('#contact-form input:not([type=checkbox]),#contact-form textarea').forEach(f=>f.addEventListener('blur',()=>validate(f)));
-const dialog=$('#success-dialog'); $('#contact-form').addEventListener('submit',e=>{e.preventDefault();const fields=$$('.field input,.field textarea',e.currentTarget);const valid=fields.map(validate).every(Boolean);const consent=$('#consent');if(!consent.checked){consent.focus();return}if(!valid){$('.field.invalid input,.field.invalid textarea')?.focus();return}dialog.showModal()});
-$$('.dialog-close,.dialog-ok').forEach(b=>b.addEventListener('click',()=>dialog.close()));
+// Валідація форми зворотного зв'язку з ЛР9 винесена в assets/js/validation.js.
 if(window.Swiper)new Swiper('.gallery-swiper',{a11y:{slideRole:null},slidesPerView:1.15,spaceBetween:18,pagination:{el:'.swiper-pagination',clickable:true},breakpoints:{700:{slidesPerView:2.15},1000:{slidesPerView:3}}});
 if(window.Fancybox)Fancybox.bind('[data-fancybox="gallery"]',{});
 const demo=new URLSearchParams(location.search).get('demo');
 if(demo){document.documentElement.style.scrollBehavior='auto'}
 if(demo==='widget')document.body.classList.add('demo-widget');
-if(demo==='error')document.body.classList.add('demo-error');
 if(demo==='widget'){$('#cheese').value='hard';$('#occasion').value='evening';intensity.value='4';intensityOutput.value='4';$('#pairing-form').dispatchEvent(new Event('submit',{cancelable:true}));}
-if(demo==='error'){$('#contact-form').dispatchEvent(new Event('submit',{cancelable:true}));}
-if(demo==='success'){$('#name').value='Максим';$('#email').value='maksym@example.com';$('#phone').value='+380 67 123 45 67';$('#message').value='Хочу запропонувати локального виробника.';$('#consent').checked=true;$('#contact-form').dispatchEvent(new Event('submit',{cancelable:true}));}
 
 // Restore focus and close compact navigation consistently.
 document.addEventListener('keydown',event=>{if(event.key==='Escape'&&nav.classList.contains('open')){nav.classList.remove('open');menu.setAttribute('aria-expanded','false');menu.setAttribute('aria-label','Відкрити меню');menu.focus();}});
