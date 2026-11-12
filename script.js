@@ -7,8 +7,7 @@ const intensity=$('#intensity'),intensityOutput=$('#intensity-output'); intensit
 const pairings={soft:{wine:'ігристе брют',temp:'8–10 °C',note:'Кислотність і бульбашки освіжають вершковий смак.'},hard:{wine:'сухе червоне з м’якими танінами',temp:'15–17 °C',note:'Насиченість вина підтримує горіхові ноти витриманого сиру.'},blue:{wine:'солодке біле або портвейн',temp:'10–12 °C',note:'Солодкість врівноважує солоність та пікантність.'},goat:{wine:'совіньйон блан',temp:'8–10 °C',note:'Свіжа кислотність підкреслює трав’яні й цитрусові відтінки.'}};
 $('#pairing-form').addEventListener('submit',e=>{e.preventDefault();const cheese=$('#cheese').value,occasion=$('#occasion').value,msg=$('#pairing-message'),result=$('#pairing-result');if(!cheese||!occasion){msg.textContent='Оберіть тип сиру та нагоду — щоб отримати рекомендацію.';result.hidden=true;return}const p=pairings[cheese];const accent=Number(intensity.value)>=4?'Для інтенсивного смаку оберіть вино з виразнішим тілом.':'Зберігайте баланс: вино не має домінувати.';msg.textContent='';result.innerHTML=`<h3>${p.wine}</h3><p><strong>Подача:</strong> ${p.temp}. ${p.note} ${accent}</p>`;result.hidden=false;if(!new URLSearchParams(location.search).has('demo'))result.scrollIntoView({behavior:'smooth',block:'nearest'})});
 // Валідація форми зворотного зв'язку з ЛР9 винесена в assets/js/validation.js.
-if(window.Swiper)new Swiper('.gallery-swiper',{a11y:{slideRole:null},slidesPerView:1.15,spaceBetween:18,pagination:{el:'.swiper-pagination',clickable:true},breakpoints:{700:{slidesPerView:2.15},1000:{slidesPerView:3}}});
-if(window.Fancybox)Fancybox.bind('[data-fancybox="gallery"]',{});
+// Галерея (Swiper, Fancybox) і ефект друку (Typed.js) з ЛР10 ініціалізуються в assets/js/media.js.
 const demo=new URLSearchParams(location.search).get('demo');
 if(demo){document.documentElement.style.scrollBehavior='auto'}
 if(demo==='widget')document.body.classList.add('demo-widget');

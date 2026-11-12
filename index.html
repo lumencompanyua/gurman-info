@@ -49,6 +49,9 @@
         <p class="eyebrow">Український крафт · сир + вино</p>
         <h1 id="hero-title">Відкривайте вдалі поєднання сиру та вина</h1>
         <p>Досліджуйте крафтові сири й вина. Обирайте смаки та знаходьте свою пару зі зрозумілим поясненням.</p>
+        <!-- ЛР10 · Typed.js: ефект друку з парами з віджета підбору. Анімований текст прихований від екранних читачів,
+             для них — статичний перелік; при prefers-reduced-motion анімація вимикається (assets/js/media.js) -->
+        <div class="mb-6 mt-1 min-h-7 text-lg font-semibold text-gold-light">Спробуйте: <span aria-hidden="true"><span id="typed-text"></span></span><span class="sr-only">бри з ігристим брют, витриманий твердий сир із сухим червоним, козячий сир із совіньйон блан, блакитний сир із портвейном</span></div>
         <div class="hero-actions">
           <a class="btn btn-primary font-extrabold shadow-lg shadow-black/40 transition-colors duration-200 hover:bg-gold-light active:bg-gold-dark focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gold" href="#pairing">Підібрати пару</a>
           <a class="btn btn-ghost" href="#catalog">Переглянути каталог</a>
@@ -130,13 +133,57 @@
       </div>
     </section>
 
+    <!-- ЛР10 · Галерея: Swiper.js 11 (6 слайдів, автоплей, стрілки, пагінація, брейкпоінти 1/2/3) + Fancybox 5 (альбом gurman-gallery, fade і зум).
+         CSS бібліотек — у <head>, JS — перед </body> через CDN jsDelivr; ініціалізація в assets/js/media.js після DOMContentLoaded.
+         Кадри — графічні активи «Гурман-Інфо» з ЛР3. -->
     <section class="section gallery" id="gallery" aria-labelledby="gallery-title">
-      <div class="container"><p class="eyebrow">Натхнення</p><h2 id="gallery-title">Атмосфера дегустації</h2>
-        <div class="swiper gallery-swiper"><div class="swiper-wrapper">
-          <a class="swiper-slide gallery-slide g1" href="assets/gallery_evening.webp" data-fancybox="gallery" data-caption="Вечір локальних смаків"><span>Вечір локальних смаків</span></a>
-          <a class="swiper-slide gallery-slide g2" href="assets/gallery_cheese.webp" data-fancybox="gallery" data-caption="Сирна дошка"><span>Сирна дошка</span></a>
-          <a class="swiper-slide gallery-slide g3" href="assets/gallery_wine_choice.webp" data-fancybox="gallery" data-caption="Оберіть своє вино"><span>Оберіть своє вино</span></a>
-        </div><div class="swiper-pagination"></div></div>
+      <div class="container">
+        <p class="eyebrow">Натхнення</p>
+        <h2 id="gallery-title">Атмосфера дегустації</h2>
+        <p class="mb-0 mt-3 max-w-2xl leading-relaxed text-muted">Шість кадрів з айдентики «Гурман-Інфо». Гортайте стрілками, свайпом або крапками; клік відкриває фото на весь екран з можливістю наблизити деталі.</p>
+        <div class="swiper gallery-swiper mt-10">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <a class="group block overflow-hidden rounded-media border border-solid border-line focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gold" href="assets/gallery_cheese.webp" data-fancybox="gurman-gallery" data-caption="Сирна дошка: бри, витримані й блакитні сири з медом, інжиром і горіхами">
+                <img class="block aspect-map h-auto w-full object-cover transition-transform duration-300 group-hover:scale-105 motion-reduce:transition-none" src="assets/gallery_cheese.webp" alt="Сирна дошка з бри, витриманими й блакитними сирами, медом, інжиром і горіхами" width="1536" height="1024" loading="lazy">
+              </a>
+              <p class="mb-0 mt-3 font-display text-xl text-ink">Сирна дошка</p>
+            </div>
+            <div class="swiper-slide">
+              <a class="group block overflow-hidden rounded-media border border-solid border-line focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gold" href="assets/gallery_evening.webp" data-fancybox="gurman-gallery" data-caption="Вечір локальних смаків: дегустація з друзями при свічках">
+                <img class="block aspect-map h-auto w-full object-cover transition-transform duration-300 group-hover:scale-105 motion-reduce:transition-none" src="assets/gallery_evening.webp" alt="Друзі за столом при свічках куштують сир і вино" width="1536" height="1024" loading="lazy">
+              </a>
+              <p class="mb-0 mt-3 font-display text-xl text-ink">Вечір локальних смаків</p>
+            </div>
+            <div class="swiper-slide">
+              <a class="group block overflow-hidden rounded-media border border-solid border-line focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gold" href="assets/gallery_wine_choice.webp" data-fancybox="gurman-gallery" data-caption="Оберіть своє вино: ігристе, біле, рожеве й червоне на одній вітрині">
+                <img class="block aspect-map h-auto w-full object-cover transition-transform duration-300 group-hover:scale-105 motion-reduce:transition-none" src="assets/gallery_wine_choice.webp" alt="Вітрина з пляшками ігристого, білого, рожевого й червоного вина" width="1774" height="887" loading="lazy">
+              </a>
+              <p class="mb-0 mt-3 font-display text-xl text-ink">Оберіть своє вино</p>
+            </div>
+            <div class="swiper-slide">
+              <a class="group block overflow-hidden rounded-media border border-solid border-line focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gold" href="assets/gallery_wine.webp" data-fancybox="gurman-gallery" data-caption="Келих червоного на заході сонця над виноградниками">
+                <img class="block aspect-map h-auto w-full object-cover transition-transform duration-300 group-hover:scale-105 motion-reduce:transition-none" src="assets/gallery_wine.webp" alt="Червоне вино наливають у келих на тлі виноградників і заходу сонця" width="1536" height="1024" loading="lazy">
+              </a>
+              <p class="mb-0 mt-3 font-display text-xl text-ink">Захід над виноградниками</p>
+            </div>
+            <div class="swiper-slide">
+              <a class="group block overflow-hidden rounded-media border border-solid border-line focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gold" href="assets/hero_bg.webp" data-fancybox="gurman-gallery" data-caption="Класична пара: витримані сири й сухе червоне">
+                <img class="block aspect-map h-auto w-full object-cover transition-transform duration-300 group-hover:scale-105 motion-reduce:transition-none" src="assets/hero_bg.webp" alt="Пляшка червоного вина, келих і дошка з витриманими сирами та виноградом" width="1672" height="941" loading="lazy">
+              </a>
+              <p class="mb-0 mt-3 font-display text-xl text-ink">Класична пара</p>
+            </div>
+            <div class="swiper-slide">
+              <a class="group block overflow-hidden rounded-media border border-solid border-line focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gold" href="assets/hero_start.webp" data-fancybox="gurman-gallery" data-caption="Три стилі вина до одного сирного сету: біле, рожеве й червоне">
+                <img class="block aspect-map h-auto w-full object-cover transition-transform duration-300 group-hover:scale-105 motion-reduce:transition-none" src="assets/hero_start.webp" alt="Пляшки білого, рожевого й червоного вина поруч із сирною дошкою" width="1672" height="941" loading="lazy">
+              </a>
+              <p class="mb-0 mt-3 font-display text-xl text-ink">Три стилі до одного сету</p>
+            </div>
+          </div>
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-button-next"></div>
+          <div class="swiper-pagination"></div>
+        </div>
       </div>
     </section>
 
@@ -283,8 +330,10 @@
   <script defer src="hero-player.js?v=floating-nav-4"></script>
   <script defer src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   <script defer src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
-  <script defer src="script.js?v=lab9-1"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12/lib/typed.min.js"></script>
+  <script defer src="script.js?v=lab10-1"></script>
   <script defer src="assets/js/validation.js?v=lab9-1"></script>
+  <script defer src="assets/js/media.js?v=lab10-1"></script>
   <script async src="weather-widget.js?v=lab7-1"></script>
 </body>
 </html>

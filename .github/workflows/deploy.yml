@@ -15,7 +15,7 @@ jobs:
       - uses: actions/checkout@v4
       - name: Verify required files
         run: |
-          for f in index.html styles.css script.js hero-player.js weather-widget.js assets/js/validation.js assets/tailwind.css assets/logo.svg assets/icons.svg assets/hero_bg.webp assets/hero_motion.mp4; do
+          for f in index.html styles.css script.js hero-player.js weather-widget.js assets/js/validation.js assets/js/media.js assets/tailwind.css assets/logo.svg assets/icons.svg assets/hero_bg.webp assets/hero_motion.mp4; do
             test -f "$f" || { echo "Missing $f"; exit 1; }
           done
       - name: Check local asset links

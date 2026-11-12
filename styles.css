@@ -1260,7 +1260,10 @@ input[type=range] {
 /* ЛР7, Lighthouse target-size: крапки 12 px з інтервалом 14 px дають зону дотику не менше 24 px. */
 .gallery-swiper {
   --swiper-pagination-bullet-size:12px;
-  --swiper-pagination-bullet-horizontal-gap:7px
+  --swiper-pagination-bullet-horizontal-gap:7px;
+  /* ЛР10: стрілки Swiper у кольорі дизайн-системи замість стандартного синього */
+  --swiper-theme-color:var(--gold);
+  --swiper-navigation-size:26px
 }
 
 .swiper-pagination-bullet-active {
