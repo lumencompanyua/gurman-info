@@ -1537,3 +1537,42 @@ section[id] { scroll-margin-top:104px; }
     margin:0 auto;
   }
 }
+
+/* Каталог: справжні фото сирів замість намальованих CSS-фігур */
+.product-art {
+  height:auto;
+  aspect-ratio:16/10;
+  display:block;
+  background:#2a1519;
+  font-size:0;
+}
+.product-art::before,
+.product-art::after {
+  content:none;
+  display:none;
+}
+.product-art img {
+  display:block;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  transition:transform .5s ease;
+}
+.product-card:hover .product-art img {
+  transform:scale(1.05);
+}
+.product-label {
+  position:absolute;
+  left:12px;
+  bottom:12px;
+  padding:5px 10px;
+  border-radius:4px;
+  background:rgba(24,11,16,.82);
+  color:var(--ink);
+  font:600 .72rem/1.3 Manrope, sans-serif;
+  backdrop-filter:blur(4px);
+}
+@media (prefers-reduced-motion:reduce) {
+  .product-art img { transition:none; }
+  .product-card:hover .product-art img { transform:none; }
+}
