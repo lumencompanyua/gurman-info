@@ -12,7 +12,7 @@
        коли галерея наближається до екрана. -->
   <link rel="preload" href="assets/fonts/manrope-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/playfair-display-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="styles.css?v=catalog-photos-1">
+  <link rel="stylesheet" href="styles.css?v=photos-2">
   <link rel="stylesheet" href="assets/tailwind.css?v=lab12-2">
   <!-- ЛР12 · SEO: канонічна адреса (сайт дзеркалиться на Netlify і GitHub Pages) та Open Graph для соцмереж -->
   <link rel="canonical" href="https://gurman-info.vercel.app/">
@@ -80,9 +80,9 @@
         <p class="eyebrow">Чому це зручно</p>
         <h2 id="benefits-title">Від вибору до дегустації</h2>
         <div class="cards three">
-          <article class="feature-card max-sm:flex max-sm:items-start max-sm:gap-4 max-sm:py-5"><svg class="feature-icon shrink-0 max-sm:mb-0 max-sm:h-9 max-sm:w-9" width="42" height="42" aria-hidden="true" focusable="false"><use href="assets/icons.svg#search"></use></svg><div><h3 class="max-sm:mb-1 max-sm:mt-0">Зрозумілий каталог</h3><p>Переглядайте демонстраційні поєднання та фільтруйте їх за типом сиру.</p></div></article>
-          <article class="feature-card max-sm:flex max-sm:items-start max-sm:gap-4 max-sm:py-5"><svg class="feature-icon shrink-0 max-sm:mb-0 max-sm:h-9 max-sm:w-9" width="42" height="42" aria-hidden="true" focusable="false"><use href="assets/icons.svg#spark"></use></svg><div><h3 class="max-sm:mb-1 max-sm:mt-0">Розумний підбір</h3><p>Отримуйте доречну пару та коротке пояснення вибору.</p></div></article>
-          <article class="feature-card max-sm:flex max-sm:items-start max-sm:gap-4 max-sm:py-5"><svg class="feature-icon shrink-0 max-sm:mb-0 max-sm:h-9 max-sm:w-9" width="42" height="42" aria-hidden="true" focusable="false"><use href="assets/icons.svg#heart"></use></svg><div><h3 class="max-sm:mb-1 max-sm:mt-0">Локальні історії</h3><p>Досліджуйте ідею українського крафту та пропонуйте виробників для каталогу.</p></div></article>
+          <article class="feature-card has-photo"><img class="feature-photo" src="assets/photos/feature-shop-480.webp" srcset="assets/photos/feature-shop-480.webp 480w, assets/photos/feature-shop-800.webp 800w" sizes="(min-width: 900px) 30vw, 92vw" alt="Вітрина сирної крамниці з десятками сортів і ціниками" width="800" height="500" loading="lazy" decoding="async"><div class="feature-inner max-sm:flex max-sm:items-start max-sm:gap-4"><svg class="feature-icon shrink-0 max-sm:mb-0 max-sm:h-9 max-sm:w-9" width="42" height="42" aria-hidden="true" focusable="false"><use href="assets/icons.svg#search"></use></svg><div><h3 class="max-sm:mb-1 max-sm:mt-0">Зрозумілий каталог</h3><p>Переглядайте демонстраційні поєднання та фільтруйте їх за типом сиру.</p></div></div></article>
+          <article class="feature-card has-photo"><img class="feature-photo" src="assets/photos/feature-flight-480.webp" srcset="assets/photos/feature-flight-480.webp 480w, assets/photos/feature-flight-800.webp 800w" sizes="(min-width: 900px) 30vw, 92vw" alt="Чотири келихи білого й червоного вина та сирна дошка надворі" width="800" height="500" loading="lazy" decoding="async"><div class="feature-inner max-sm:flex max-sm:items-start max-sm:gap-4"><svg class="feature-icon shrink-0 max-sm:mb-0 max-sm:h-9 max-sm:w-9" width="42" height="42" aria-hidden="true" focusable="false"><use href="assets/icons.svg#spark"></use></svg><div><h3 class="max-sm:mb-1 max-sm:mt-0">Розумний підбір</h3><p>Отримуйте доречну пару та коротке пояснення вибору.</p></div></div></article>
+          <article class="feature-card has-photo"><img class="feature-photo" src="assets/photos/feature-aging-480.webp" srcset="assets/photos/feature-aging-480.webp 480w, assets/photos/feature-aging-800.webp 800w" sizes="(min-width: 900px) 30vw, 92vw" alt="Головки сиру дозрівають на дерев’яних полицях у льоху" width="800" height="500" loading="lazy" decoding="async"><div class="feature-inner max-sm:flex max-sm:items-start max-sm:gap-4"><svg class="feature-icon shrink-0 max-sm:mb-0 max-sm:h-9 max-sm:w-9" width="42" height="42" aria-hidden="true" focusable="false"><use href="assets/icons.svg#heart"></use></svg><div><h3 class="max-sm:mb-1 max-sm:mt-0">Локальні історії</h3><p>Досліджуйте ідею українського крафту та пропонуйте виробників для каталогу.</p></div></div></article>
         </div>
       </div>
     </section>
@@ -102,14 +102,14 @@
           <article class="product-card" data-kind="soft"><div class="product-art"><img src="assets/catalog/brie-400.webp" srcset="assets/catalog/brie-400.webp 400w, assets/catalog/brie-640.webp 640w" sizes="(min-width: 1180px) 270px, (min-width: 700px) 45vw, 92vw" alt="Головка брі з білою пліснявою, волоським горіхом і чебрецем" width="640" height="400" loading="lazy" decoding="async"><span class="product-label" aria-hidden="true">Брі з білою пліснявою</span></div><div class="product-body"><span class="tag">М'який</span><h3>Карпатський брі</h3><p>Вершковий, грибний, делікатний.</p><div class="pair"><span>Пара:</span> ігристе брют</div></div></article>
           <article class="product-card" data-kind="hard"><div class="product-art"><img src="assets/catalog/gouda-400.webp" srcset="assets/catalog/gouda-400.webp 400w, assets/catalog/gouda-640.webp 640w" sizes="(min-width: 1180px) 270px, (min-width: 700px) 45vw, 92vw" alt="Шматок витриманого твердого сиру з крихтами на дерев’яній дошці" width="640" height="400" loading="lazy" decoding="async"><span class="product-label" aria-hidden="true">Витриманий твердий сир</span></div><div class="product-body"><span class="tag">Твердий</span><h3>Витриманий ґауда</h3><p>Горіховий, карамельний, насичений.</p><div class="pair"><span>Пара:</span> сухе червоне</div></div></article>
           <article class="product-card" data-kind="blue"><div class="product-art"><img src="assets/catalog/blue-400.webp" srcset="assets/catalog/blue-400.webp 400w, assets/catalog/blue-640.webp 640w" sizes="(min-width: 1180px) 270px, (min-width: 700px) 45vw, 92vw" alt="Скибка сиру з блакитною пліснявою поруч із виноградом" width="640" height="400" loading="lazy" decoding="async"><span class="product-label" aria-hidden="true">Сир з блакитною пліснявою</span></div><div class="product-body"><span class="tag">Блакитний</span><h3>Галицький блю</h3><p>Пікантний, солонуватий, виразний.</p><div class="pair"><span>Пара:</span> солодке біле</div></div></article>
-          <article class="product-card" data-kind="soft"><div class="product-art"><img src="assets/catalog/goat-400.webp" srcset="assets/catalog/goat-400.webp 400w, assets/catalog/goat-640.webp 640w" sizes="(min-width: 1180px) 270px, (min-width: 700px) 45vw, 92vw" alt="Головка м’якого козячого сиру з відрізаною скибкою на сирній дошці" width="640" height="400" loading="lazy" decoding="async"><span class="product-label" aria-hidden="true">М’який козячий сир</span></div><div class="product-body"><span class="tag">М'який</span><h3>Козячий шевр</h3><p>Свіжий, трав'яний, з легкою кислинкою.</p><div class="pair"><span>Пара:</span> совіньйон блан</div></div></article>
+          <article class="product-card" data-kind="soft"><div class="product-art"><img src="assets/catalog/goat-400.webp?v=2" srcset="assets/catalog/goat-400.webp?v=2 400w, assets/catalog/goat-640.webp?v=2 640w" sizes="(min-width: 1180px) 270px, (min-width: 700px) 45vw, 92vw" alt="Головки козячого сиру з попелястою скоринкою на дерев’яній полиці" width="640" height="400" loading="lazy" decoding="async"><span class="product-label" aria-hidden="true">М’який козячий сир</span></div><div class="product-body"><span class="tag">М'який</span><h3>Козячий шевр</h3><p>Свіжий, трав'яний, з легкою кислинкою.</p><div class="pair"><span>Пара:</span> совіньйон блан</div></div></article>
         </div>
       </div>
     </section>
 
     <section class="section pairing" id="pairing" aria-labelledby="pairing-title">
       <div class="container pairing-layout">
-        <div class="pairing-copy"><p class="eyebrow">Інтерактивний помічник</p><h2 id="pairing-title">Ваше поєднання за хвилину</h2><p>Оберіть характеристики сиру та нагоду. Алгоритм запропонує стиль вина, температуру подачі й смаковий акцент.</p><ul><li>3 параметри підбору</li><li>перевірка неповних даних</li><li>пояснення кожної рекомендації</li></ul></div>
+        <div class="pairing-copy"><p class="eyebrow">Інтерактивний помічник</p><h2 id="pairing-title">Ваше поєднання за хвилину</h2><p>Оберіть характеристики сиру та нагоду. Алгоритм запропонує стиль вина, температуру подачі й смаковий акцент.</p><ul><li>3 параметри підбору</li><li>перевірка неповних даних</li><li>пояснення кожної рекомендації</li></ul><img class="pairing-photo" src="assets/photos/pairing-600.webp" srcset="assets/photos/pairing-600.webp 600w, assets/photos/pairing-1000.webp 1000w" sizes="(min-width: 900px) 42vw, 92vw" alt="Келихи червоного вина й дошка з твердими та блакитними сирами" width="1000" height="750" loading="lazy" decoding="async"></div>
         <form class="pairing-form" id="pairing-form" novalidate>
           <label>Тип сиру<select id="cheese" required><option value="">Оберіть тип</option><option value="soft">М'який</option><option value="hard">Твердий</option><option value="blue">З блакитною пліснявою</option><option value="goat">Козячий</option></select></label>
           <label>Інтенсивність смаку<input id="intensity" type="range" min="1" max="5" value="3"><span class="range-output">Середня — <output id="intensity-output">3</output>/5</span></label>
@@ -163,7 +163,9 @@
               <button type="reset" class="btn btn-ghost min-h-12 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gold">Скинути до прикладу</button>
             </div>
           </form>
-          <div class="rounded-widget border border-solid border-line bg-paper p-5 sm:p-8 lg:col-span-2">
+          <div class="grid gap-6 lg:col-span-2">
+            <img class="calc-photo" src="assets/photos/friends-600.webp" srcset="assets/photos/friends-600.webp 600w, assets/photos/friends-1000.webp 1000w" sizes="(min-width: 1024px) 36vw, 92vw" alt="Друзі за столом передають одне одному сир, горіхи й вино при свічках" width="1000" height="625" loading="lazy" decoding="async">
+          <div class="rounded-widget border border-solid border-line bg-paper p-5 sm:p-8">
             <h3 class="m-0 font-display text-2xl font-medium text-ink">Орієнтовний розрахунок</h3>
             <dl class="mb-0 mt-5 grid gap-3">
               <div class="flex items-baseline justify-between gap-4 border-0 border-b border-solid border-line pb-3"><dt class="text-muted">Сир загалом</dt><dd class="m-0 text-right font-body text-2xl font-extrabold text-gold" data-result="cheese">—</dd></div>
@@ -172,6 +174,7 @@
               <div class="flex items-baseline justify-between gap-4"><dt class="text-muted">Супровід</dt><dd class="m-0 text-right font-semibold text-ink" data-result="extras">—</dd></div>
             </dl>
             <p class="mb-0 mt-5 text-sm leading-relaxed text-muted" data-result="summary" aria-live="polite"></p>
+          </div>
           </div>
         </div>
       </div>
@@ -264,7 +267,7 @@
       </div>
     </section>
 
-    <section class="section about" id="about" aria-labelledby="about-title">
+    <section class="section about about-photo" id="about" aria-labelledby="about-title">
       <div class="container about-grid"><div><p class="eyebrow">Про проєкт</p><h2 id="about-title">Менше правил — більше вдалих відкриттів</h2><p>«Гурман-Інфо» допомагає початківцям і поціновувачам знаходити локальні продукти, розуміти базові принципи гастрономічних пар і впевнено складати дегустаційні сети.</p><a class="text-link" href="#contact">Запропонувати виробника →</a></div><blockquote>«Добре поєднання не перекриває смак — воно відкриває в ньому нову ноту.»<cite>Редакція «Гурман-Інфо»</cite></blockquote></div>
     </section>
 
@@ -295,7 +298,7 @@
     </section>
 
     <!-- ЛР7 · Фінальний CTA перед контактами -->
-    <section class="bg-wine py-14 md:py-20" aria-labelledby="cta-title">
+    <section class="cta-photo bg-wine py-14 md:py-20" aria-labelledby="cta-title">
       <div class="container flex flex-col gap-8 md:flex-row md:items-center md:justify-between">
         <div class="max-w-2xl">
           <h2 id="cta-title" class="m-0 font-display text-3xl font-medium leading-tight text-ink sm:text-4xl">Готові скласти власну дегустаційну пару?</h2>

@@ -8,7 +8,27 @@
 
 - GitHub Pages: https://lumencompanyua.github.io/gurman-info/
 - Netlify: https://gurman-info.netlify.app
+- Vercel: https://gurman-info.vercel.app
 - Репозиторій: https://github.com/lumencompanyua/gurman-info
+
+## Інтерфейс
+
+![Головний екран: «Відкривайте вдалі поєднання сиру та вина»](docs/screenshot-hero.webp)
+
+![Каталог: картки сирів з фото, фільтри за типом і пара до вина](docs/screenshot-catalog.webp)
+
+![Переваги: три картки з фото — крамниця сирів, дегустація вина, сироварня](docs/screenshot-benefits.webp)
+
+## Технології
+
+- **HTML5** — семантична розмітка, ARIA-атрибути для доступності;
+- **CSS3** — власна дизайн-система на змінних `:root`, адаптивна верстка (Grid, Flexbox, медіазапити);
+- **Tailwind CSS 3.4** — утилітарні класи для блоків ЛР7–ЛР11 (зібраний файл `assets/tailwind.css`);
+- **JavaScript (ES6+)** — фільтр каталогу, підбір пари, калькулятор дегустації, валідація форми;
+- **Swiper.js 11, Fancybox 5, Typed.js 2** — галерея, перегляд фото, ефект друку (через CDN jsDelivr);
+- **Open-Meteo API** — інформер погоди; **YouTube** і **Google Maps** — вбудовані відео та карта;
+- **WebP, SVG, self-hosted шрифти** (Playfair Display, Manrope) — оптимізація за Lighthouse;
+- **Git, GitHub, GitHub Actions** — контроль версій і CI/CD; хостинг: **GitHub Pages, Netlify, Vercel**.
 
 ## Запуск
 
@@ -81,3 +101,19 @@ Figma: https://www.figma.com/design/minnVc79WpCXVNTmFLSgxd
 - Продуктивність: адаптивні зображення (`srcset`, версії 800 px), відео Hero вантажиться лише після `load` (на телефонах — за кнопкою), шрифти Manrope і Playfair Display розміщено в `assets/fonts`, Swiper і Fancybox підвантажуються при наближенні до галереї, «фасад» YouTube замість iframe до натискання, шрифти Google без блокування відображення, з `styles.css` прибрано 60 мертвих правил.
 - Доступність: стрілки слайдера 48×48 px. SEO: `canonical`, Open Graph, `robots.txt`, `sitemap.xml`. Best Practices: `rel="noopener noreferrer"`.
 - CI/CD: `.github/workflows/deploy.yml` — job `validate` перевіряє файли й посилання, job `deploy` публікує на Vercel через Vercel CLI (секрет `VERCEL_TOKEN`); автодеплой Vercel із Git вимкнено у `vercel.json`, щоб сайт публікувався один раз.
+
+## Фото
+
+Hero, галерея та картки брі, твердого й блакитного сиру — графічні активи «Гурман-Інфо» (ЛР3).
+Решту фото взято з [Unsplash](https://unsplash.com) за [ліцензією Unsplash](https://unsplash.com/license) (вільне використання, у т. ч. без зазначення автора); автори вказані з вдячністю:
+
+| Де на сайті | Файл | Автор |
+|---|---|---|
+| Каталог, «Козячий шевр» | `assets/catalog/goat-*.webp` | [Bret Lama](https://unsplash.com/photos/7iDe-nmGoos) |
+| Переваги, «Зрозумілий каталог» | `assets/photos/feature-shop-*.webp` | [Eric Prouzet](https://unsplash.com/photos/poG6gpWYQEM) |
+| Переваги, «Розумний підбір» | `assets/photos/feature-flight-*.webp` | [Chelsea Pridham](https://unsplash.com/photos/MMOXoxE_Gj0) |
+| Переваги, «Локальні історії» | `assets/photos/feature-aging-*.webp` | [David Magalhães](https://unsplash.com/photos/CxdDbUv6gt0) |
+| Підбір пари | `assets/photos/pairing-*.webp` | [Alessio Roversi](https://unsplash.com/photos/W3qIf--zZzs) |
+| Калькулятор дегустації | `assets/photos/friends-*.webp` | [The Cheeseroom](https://unsplash.com/photos/H5eCU_xNnsM) |
+| «Про проєкт», фон | `assets/photos/vineyard-*.webp` | [Lucas Gallone](https://unsplash.com/photos/DPNmKutv5D4) |
+| Заклик «Готові скласти пару?», фон | `assets/photos/toast-*.webp` | [Ivenory](https://unsplash.com/photos/5tqlorcXgjE) |
